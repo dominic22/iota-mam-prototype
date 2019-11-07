@@ -1,0 +1,30 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  width: 50%;
+  margin-bottom: 60px;
+}
+div {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+button {
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
