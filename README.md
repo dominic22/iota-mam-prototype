@@ -2,7 +2,7 @@
 
 Send your current device location location to the IOTA tangle using Masked Authenticated Messaging (MAM)
 
-![alt text](./coordinates-publisher/src/assets/screenshot.png)
+<img src="./coordinates-publisher/src/assets/screenshot.png" width="400"/>
 
 Run the coordinates-publisher using:
 
