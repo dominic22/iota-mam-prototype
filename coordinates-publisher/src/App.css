@@ -6,14 +6,26 @@
   width: 50%;
   margin-bottom: 60px;
 }
+
 div {
   font-size: 16px;
   margin-bottom: 20px;
 }
-button {
+
+.button {
   margin-top: 30px;
   margin-bottom: 50px;
+  padding:20px;
+  color: white;
+  font-weight: bold;
+  background-color: #09d3ac;
+  font-size:16px;
 }
+
+.button:active {
+  background-color: #08b2ac;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -27,4 +39,21 @@ button {
 
 .App-link {
   color: #09d3ac;
+}
+
+span {
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;  
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.link-wrapper{
+    max-width: 80%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }

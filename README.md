@@ -1,3 +1,10 @@
-# IOTA Masked Authenticated Messaging Prototype using a Smartphone App as sender and receiver
+# IOTA Masked Authenticated Messaging Prototype
 
-Publisher sends Geo location using a channel. Receiver listens to the channel.
+Send your current device location location to the IOTA tangle using Masked Authenticated Messaging (MAM)
+
+Run the coordinates-publisher using:
+
+```
+npm install
+npm run start
+```

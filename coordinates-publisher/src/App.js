@@ -5,10 +5,9 @@ import { asciiToTrytes } from '@iota/converter';
 import Mam from '@iota/mam';
 
 const mode = 'restricted'
-// secret always upper case!
-const secretKey = 'SECRETBIG'
+const secretKey = 'SECRETBIG' // secret always upper case!
 const provider = 'https://nodes.devnet.iota.org'
-
+const mamExplorerLink = `https://mam-explorer.firebaseapp.com/?provider=${encodeURIComponent(provider)}&mode=${mode}&key=${secretKey.padEnd(81, '9')}&root=`
 
 let mamState = Mam.init(provider)
 const baseRoot = Mam.getRoot(mamState);
@@ -17,8 +16,6 @@ mamState = Mam.changeMode(mamState, mode, secretKey)
 const publish = async data => {
   // Create MAM Payload - STRING OF TRYTES
   const trytes = asciiToTrytes(JSON.stringify(data))
-
-
   const message = Mam.create(mamState, trytes)
 
   // Save new mamState
@@ -33,17 +30,13 @@ const publish = async data => {
 function App() {
   const [currentRoot, setCurrentRoot] = useState('');
   const [position, setPosition] = useState({ lat:0, long:0});
-
-  
  
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <div >Base root: {baseRoot}</div>
-        <div >Publish your current coordinates to the tangle:</div>
-      
-        <button onClick={async () => {
+        <div >Publish your device position to the tangle!</div>
+        <div className="button" onClick={async () => {
           navigator.geolocation.getCurrentPosition(async (pos) => {
             const root = await publish({
               position,
@@ -52,16 +45,21 @@ function App() {
             setCurrentRoot(root);
             setPosition({ lat: pos.coords.latitude, long: pos.coords.longitude})
           });
-        }} >Publish coordinates</button>
-        <div>Current position - long: {position.long } lat: { position.lat }</div>
-        <div >Current root: <a
+        }} >Publish coordinates</div>
+        <div className="link-wrapper">Base root: <a
           className="App-link"
-          href="https://reactjs.org"
+          href={mamExplorerLink + baseRoot}
           target="_blank"
           rel="noopener noreferrer"
-        > {currentRoot}</a></div>
+        > {baseRoot}</a></div>
         
-        
+        <div>Current position - long: {position.long } lat: { position.lat }</div>
+        <div className="link-wrapper">Current root: <a
+          className="App-link"
+          href={mamExplorerLink + currentRoot}
+          target="_blank"
+          rel="noopener noreferrer"
+        ><span> {currentRoot}</span></a></div>
       </header>
     </div>
   );
