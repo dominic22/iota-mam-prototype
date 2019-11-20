@@ -1,6 +1,6 @@
 # IOTA Masked Authenticated Messaging Prototype
 
-Publish your current device location to the IOTA tangle using Masked Authenticated Messaging (MAM).
+Basic reactjs example application which publishes your current device location to the IOTA tangle using Masked Authenticated Messaging (MAM).
 
 <img src="./coordinates-publisher/src/assets/screenshot.png" width="400"/>
 
